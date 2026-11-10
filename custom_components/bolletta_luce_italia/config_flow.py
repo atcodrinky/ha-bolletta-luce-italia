@@ -28,7 +28,7 @@ def _entity() -> selector.EntitySelector:
 def _number(
     minimum: float = 0,
     maximum: float = 10000,
-    step: float | Literal["any"] = 0.001,
+    step: float | Literal["any"] = "any",
 ) -> selector.NumberSelector:
     return selector.NumberSelector(
         selector.NumberSelectorConfig(
@@ -139,7 +139,7 @@ def _network_schema(values: dict[str, Any]) -> vol.Schema:
         vol.Required(
             CONF_COMMITTED_POWER,
             default=_value(values, CONF_COMMITTED_POWER),
-        ): _number(0, 100, 0.1),
+        ): _number(0, 100, "any"),
         vol.Required(
             CONF_DISTRIBUTION_VARIABLE,
             default=_value(values, CONF_DISTRIBUTION_VARIABLE),
@@ -167,7 +167,7 @@ def _taxes_schema(values: dict[str, Any]) -> vol.Schema:
         ): _number(0, 5, "any"),
         vol.Required(
             CONF_VAT, default=_value(values, CONF_VAT)
-        ): _number(0, 100, 0.1),
+        ): _number(0, 100, "any"),
         vol.Required(
             CONF_RAI_YEAR, default=_value(values, CONF_RAI_YEAR)
         ): _number(),

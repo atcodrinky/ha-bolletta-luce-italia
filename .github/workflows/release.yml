@@ -1,0 +1,36 @@
+name: Pubblica release
+
+on:
+  push:
+    branches:
+      - main
+    paths:
+      - "custom_components/bolletta_luce_italia/manifest.json"
+      - ".github/workflows/release.yml"
+
+permissions:
+  contents: write
+
+jobs:
+  release:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Scarica il repository
+        uses: actions/checkout@v4
+
+      - name: Legge la versione
+        id: version
+        shell: bash
+        run: |
+          VERSION=$(jq -r '.version' custom_components/bolletta_luce_italia/manifest.json)
+          echo "tag=v${VERSION}" >> "$GITHUB_OUTPUT"
+
+      - name: Crea la release se non esiste
+        env:
+          GH_TOKEN: ${{ github.token }}
+          TAG: ${{ steps.version.outputs.tag }}
+        shell: bash
+        run: |
+          if ! gh release view "$TAG" >/dev/null 2>&1; then
+            gh release create "$TAG" --target "$GITHUB_SHA" --title "$TAG" --generate-notes
+          fi

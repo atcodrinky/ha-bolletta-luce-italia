@@ -4,6 +4,21 @@ Tutte le modifiche rilevanti di Bolletta Luce Italia sono documentate in questo 
 
 Il progetto usa il versionamento semantico e i tag nel formato `vMAJOR.MINOR.PATCH`.
 
+## [0.3.0] - 2026-11-10
+
+### Aggiunto
+
+- Servizio `bolletta_luce_italia.importa_storico` per inserire o aggiornare più bollette mensili con un'unica chiamata.
+- Importazione dei consumi F1, F2 e F3, del periodo di fatturazione e del dettaglio economico facoltativo.
+- Sensori per totale confrontabile, totale energia senza RAI, canone RAI, bonus e sconti, totale da pagare e numero di bollette archiviate.
+- Archivio delle bollette importate esposto come attributo del relativo sensore.
+
+### Modificato
+
+- L'importazione è idempotente: una bolletta già presente viene aggiornata in base al mese senza creare duplicati.
+- Il confronto con la stima usa il totale della bolletta più il canone RAI, mantenendo separati bonus, crediti e importo effettivamente pagato.
+- Gli esempi pubblici usano esclusivamente valori neutri e non contengono dati reali.
+
 ## [0.2.3] - 2026-11-10
 
 ### Corretto

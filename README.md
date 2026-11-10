@@ -2,7 +2,7 @@
 
 Bolletta Luce Italia è un'integrazione personalizzata per Home Assistant che stima e archivia la bolletta elettrica italiana partendo dai consumi mensili F1, F2 e F3.
 
-La versione 0.1.0 è una prima versione installabile e verificabile in parallelo ai sensori template esistenti.
+La versione 0.2.0 introduce una configurazione guidata in cinque pagine ed è verificabile in parallelo ai sensori template esistenti.
 
 [![Apri nel Marketplace di Home Assistant](https://my.home-assistant.io/badges/marketplace_repository.svg)](https://my.home-assistant.io/redirect/marketplace_repository/?owner=atcodrinky&repository=ha-bolletta-luce-italia&category=integration)
 
@@ -20,6 +20,7 @@ La versione 0.1.0 è una prima versione installabile e verificabile in parallelo
 - inserimento manuale di consumi e totale delle bollette reali;
 - ripartizione opzionale della ricarica auto fra rete e fotovoltaico;
 - attribuzione opzionale e proporzionale delle quote fisse all'auto;
+- configurazione guidata in cinque pagine con contatore e ritorno al passaggio precedente;
 - modifica di tutte le opzioni senza riavviare Home Assistant.
 
 ## Sensori da conservare
@@ -49,8 +50,14 @@ Per il contratto usato durante lo sviluppo:
 - sensori energia: i tre sensori storici F1, F2 e F3;
 - sensori PUN: sensor.pun_fascia_f1, sensor.pun_fascia_f2 e sensor.pun_fascia_f3;
 - fattore perdite di rete: 1,10;
-- spread F1, F2 e F3: 0,0088 €/kWh;
-- quota fissa vendita: 72 €/anno;
+- spread F1, F2 e F3: 0,025718 €/kWh;
+- quota fissa vendita: 73,2311 €/anno;
+- quota fissa distribuzione: 22,8 €/anno;
+- quota potenza: 25,2788 €/kW/anno;
+- potenza impegnata: 5,5 kW;
+- distribuzione variabile: 0,01352 €/kWh;
+- oneri di sistema: 0,031322 €/kWh;
+- fattore di correzione consumi: 1,15;
 - accisa: 0,0227 €/kWh;
 - IVA: 10%;
 - canone RAI: 90 €/anno in 10 rate.
@@ -103,7 +110,7 @@ Il servizio bolletta_luce_italia.archivia_mese salva manualmente la fotografia c
 
 Aprire l'integrazione e scegliere Configura. Il pulsante Salva applica i nuovi valori ricaricando soltanto Bolletta Luce Italia: non è necessario riavviare Home Assistant e non occorre eliminare o ricreare la configurazione.
 
-## Limiti della versione 0.1.0
+## Limiti attuali
 
 - CdispD e componenti ARERA sono inseriti manualmente.
 - L'importazione automatica da fonti ufficiali ARERA sarà aggiunta dopo la validazione dei calcoli della prima versione.
@@ -112,7 +119,7 @@ Aprire l'integrazione e scegliere Configura. Il pulsante Salva applica i nuovi v
 
 ## Versionamento
 
-Il progetto usa il versionamento semantico. Le versioni pubblicate sono identificate da tag nel formato vMAJOR.MINOR.PATCH.
+Il progetto usa il versionamento semantico. Le versioni pubblicate sono identificate da tag nel formato vMAJOR.MINOR.PATCH. Ogni pubblicazione deve aggiornare il [registro delle modifiche](CHANGELOG.md).
 
 ## Licenza
 

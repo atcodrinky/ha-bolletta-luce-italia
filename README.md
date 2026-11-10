@@ -4,6 +4,9 @@ Bolletta Luce Italia è un'integrazione personalizzata per Home Assistant che st
 
 La versione 0.1.0 è una prima versione installabile e verificabile in parallelo ai sensori template esistenti.
 
+[![Apri nel Marketplace di Home Assistant](https://my.home-assistant.io/badges/marketplace_repository.svg)](https://my.home-assistant.io/redirect/marketplace_repository/?owner=atcodrinky&repository=ha-bolletta-luce-italia&category=integration)
+
+
 ## Funzioni disponibili
 
 - tariffa indicizzata al PUN oppure prezzo fisso;

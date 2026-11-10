@@ -4,11 +4,15 @@ Tutte le modifiche rilevanti di Bolletta Luce Italia sono documentate in questo 
 
 Il progetto usa il versionamento semantico e i tag nel formato `vMAJOR.MINOR.PATCH`.
 
-## [Non rilasciato]
+## [0.2.1] - 2026-11-10
 
 ### Aggiunto
 
 - Icona brand locale a 256×256 pixel e versione ad alta risoluzione a 512×512 pixel per Home Assistant.
+
+### Corretto
+
+- Aumentata a sei decimali la precisione dei campi tariffari espressi in €/kWh: prezzi fissi, spread, distribuzione, oneri di sistema, CdispD e accisa.
 
 ## [0.2.0] - 2026-11-10
 

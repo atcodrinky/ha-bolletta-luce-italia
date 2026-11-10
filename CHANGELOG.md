@@ -4,6 +4,13 @@ Tutte le modifiche rilevanti di Bolletta Luce Italia sono documentate in questo 
 
 Il progetto usa il versionamento semantico e i tag nel formato `vMAJOR.MINOR.PATCH`.
 
+## [0.2.2] - 2026-11-10
+
+### Corretto
+
+- Risolto l'errore durante l'apertura della seconda pagina del config flow.
+- Sostituito il passo numerico non supportato con la precisione libera prevista da Home Assistant, mantenendo l'inserimento di valori tariffari con più di tre decimali.
+
 ## [0.2.1] - 2026-11-10
 
 ### Aggiunto

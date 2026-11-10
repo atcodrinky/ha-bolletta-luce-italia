@@ -1,12 +1,39 @@
 # Registro delle modifiche
 
-## 0.1.0 - 2026-11-10
+Tutte le modifiche rilevanti di Bolletta Luce Italia sono documentate in questo file.
 
-- Prima versione installabile.
-- Configurazione completa dall'interfaccia di Home Assistant.
-- Tariffe indicizzate al PUN e tariffe fisse su tre fasce.
-- Calcolo di materia energia, CdispD, rete e oneri, quote fisse, accise, IVA e canone RAI.
-- Fattore manuale di correzione dei consumi.
-- Archivio mensile e inserimento dei consuntivi reali.
-- Ripartizione opzionale dei costi della ricarica auto, con quote fisse opzionali.
-- Applicazione delle opzioni senza riavvio di Home Assistant.
+Il progetto usa il versionamento semantico e i tag nel formato `vMAJOR.MINOR.PATCH`.
+
+## [0.2.0] - 2026-11-10
+
+### Aggiunto
+
+- Configurazione iniziale suddivisa in cinque pagine.
+- Contatore della pagina nei titoli del wizard.
+- Comando per tornare alla pagina precedente conservando i valori inseriti.
+- Options Flow multipagina con applicazione immediata senza riavviare Home Assistant.
+- Controllo automatico che impedisce di pubblicare una versione assente dal registro delle modifiche.
+
+### Modificato
+
+- Raggruppati i campi in sorgenti energia, tariffa, rete e quote fisse, imposte e ricarica auto.
+- Migliorate le descrizioni italiane dei passaggi.
+- La ricarica dell'auto rimane completamente opzionale.
+
+## [0.1.1] - 2026-11-10
+
+### Corretto
+
+- Risolto l'errore `400: Bad Request` del config flow su Home Assistant 2026.11.
+- Adeguato il passo minimo dei campi numerici ai requisiti di Home Assistant.
+
+## [0.1.0] - 2026-11-10
+
+### Aggiunto
+
+- Prima versione installabile di Bolletta Luce Italia.
+- Calcolo per tariffa indicizzata al PUN o prezzo fisso, con fasce F1, F2 e F3.
+- Componenti di rete, oneri, CdispD, quote fisse, accisa, IVA e canone RAI.
+- Archivio mensile interno e inserimento manuale delle bollette reali.
+- Ripartizione opzionale dei consumi della wallbox tra rete e fotovoltaico.
+- Options Flow con ricarica della sola integrazione.

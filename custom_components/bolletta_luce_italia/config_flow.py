@@ -21,7 +21,7 @@ def _entity() -> selector.EntitySelector:
     return selector.EntitySelector(selector.EntitySelectorConfig(domain="sensor"))
 
 
-def _number(minimum: float = 0, maximum: float = 10000, step: float = 0.0001) -> selector.NumberSelector:
+def _number(minimum: float = 0, maximum: float = 10000, step: float = 0.001) -> selector.NumberSelector:
     return selector.NumberSelector(selector.NumberSelectorConfig(min=minimum, max=maximum, step=step, mode=selector.NumberSelectorMode.BOX))
 
 

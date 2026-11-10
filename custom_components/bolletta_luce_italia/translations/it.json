@@ -2,14 +2,20 @@
   "title": "Bolletta Luce Italia",
   "config": {
     "step": {
-      "user": {
-        "title": "Configura Bolletta Luce Italia",
-        "description": "Seleziona le sorgenti e inserisci le condizioni del contratto. I valori possono essere modificati in seguito senza riavviare Home Assistant.",
+      "sources": {
+        "title": "Sorgenti energia — 1/5",
+        "description": "Scegli i tre contatori mensili F1, F2 e F3. Queste entità non verranno modificate o sostituite.",
         "data": {
           "name": "Nome configurazione",
           "energy_f1": "Sensore energia F1",
           "energy_f2": "Sensore energia F2",
-          "energy_f3": "Sensore energia F3",
+          "energy_f3": "Sensore energia F3"
+        }
+      },
+      "tariff": {
+        "title": "Tariffa energia — 2/5",
+        "description": "Configura la componente energia. Compila i sensori PUN per una tariffa indicizzata oppure i prezzi F1/F2/F3 per una tariffa fissa.",
+        "data": {
           "tariff_model": "Modello tariffario",
           "pun_f1": "Sensore PUN F1",
           "pun_f2": "Sensore PUN F2",
@@ -21,7 +27,13 @@
           "spread_f1": "Spread F1 (€/kWh)",
           "spread_f2": "Spread F2 (€/kWh)",
           "spread_f3": "Spread F3 (€/kWh)",
-          "correction_factor": "Fattore di correzione consumi",
+          "_go_back": "Torna alla pagina precedente"
+        }
+      },
+      "network": {
+        "title": "Rete e quote fisse — 3/5",
+        "description": "Inserisci le componenti di vendita, distribuzione, potenza e oneri previste dal contratto e dalle tariffe regolate.",
+        "data": {
           "sales_fixed_year": "Quota fissa vendita annua (€)",
           "distribution_fixed_year": "Quota fissa distribuzione annua (€)",
           "power_rate_year": "Quota potenza annua per kW (€)",
@@ -29,14 +41,30 @@
           "distribution_variable": "Distribuzione variabile (€/kWh)",
           "system_charges": "Oneri di sistema (€/kWh)",
           "cdispd": "CdispD (€/kWh)",
+          "_go_back": "Torna alla pagina precedente"
+        }
+      },
+      "taxes": {
+        "title": "Imposte e canone RAI — 4/5",
+        "description": "Configura correzione dei consumi, accisa, IVA e rate del canone RAI.",
+        "data": {
+          "correction_factor": "Fattore di correzione consumi",
           "excise": "Accisa (€/kWh)",
           "vat": "IVA (%)",
           "rai_year": "Canone RAI annuo (€)",
           "rai_installments": "Numero rate RAI",
+          "_go_back": "Torna alla pagina precedente"
+        }
+      },
+      "ev": {
+        "title": "Ricarica auto — 5/5",
+        "description": "Se non possiedi un’auto elettrica lascia disattivata la ripartizione. Salva per completare la configurazione.",
+        "data": {
           "ev_enabled": "Abilita ripartizione ricarica auto",
           "ev_grid": "Energia wallbox da rete del mese",
           "ev_pv": "Energia wallbox da fotovoltaico del mese",
-          "ev_include_fixed": "Attribuisci all’auto anche le quote fisse in proporzione"
+          "ev_include_fixed": "Attribuisci all’auto anche le quote fisse in proporzione",
+          "_go_back": "Torna alla pagina precedente"
         }
       }
     },
@@ -48,14 +76,20 @@
   },
   "options": {
     "step": {
-      "init": {
-        "title": "Modifica Bolletta Luce Italia",
-        "description": "Salva per applicare subito le modifiche e ricaricare soltanto questa integrazione.",
+      "sources": {
+        "title": "Sorgenti energia — 1/5",
+        "description": "Scegli i tre contatori mensili F1, F2 e F3. Queste entità non verranno modificate o sostituite.",
         "data": {
           "name": "Nome configurazione",
           "energy_f1": "Sensore energia F1",
           "energy_f2": "Sensore energia F2",
-          "energy_f3": "Sensore energia F3",
+          "energy_f3": "Sensore energia F3"
+        }
+      },
+      "tariff": {
+        "title": "Tariffa energia — 2/5",
+        "description": "Configura la componente energia. Compila i sensori PUN per una tariffa indicizzata oppure i prezzi F1/F2/F3 per una tariffa fissa.",
+        "data": {
           "tariff_model": "Modello tariffario",
           "pun_f1": "Sensore PUN F1",
           "pun_f2": "Sensore PUN F2",
@@ -67,7 +101,13 @@
           "spread_f1": "Spread F1 (€/kWh)",
           "spread_f2": "Spread F2 (€/kWh)",
           "spread_f3": "Spread F3 (€/kWh)",
-          "correction_factor": "Fattore di correzione consumi",
+          "_go_back": "Torna alla pagina precedente"
+        }
+      },
+      "network": {
+        "title": "Rete e quote fisse — 3/5",
+        "description": "Inserisci le componenti di vendita, distribuzione, potenza e oneri previste dal contratto e dalle tariffe regolate.",
+        "data": {
           "sales_fixed_year": "Quota fissa vendita annua (€)",
           "distribution_fixed_year": "Quota fissa distribuzione annua (€)",
           "power_rate_year": "Quota potenza annua per kW (€)",
@@ -75,14 +115,30 @@
           "distribution_variable": "Distribuzione variabile (€/kWh)",
           "system_charges": "Oneri di sistema (€/kWh)",
           "cdispd": "CdispD (€/kWh)",
+          "_go_back": "Torna alla pagina precedente"
+        }
+      },
+      "taxes": {
+        "title": "Imposte e canone RAI — 4/5",
+        "description": "Configura correzione dei consumi, accisa, IVA e rate del canone RAI.",
+        "data": {
+          "correction_factor": "Fattore di correzione consumi",
           "excise": "Accisa (€/kWh)",
           "vat": "IVA (%)",
           "rai_year": "Canone RAI annuo (€)",
           "rai_installments": "Numero rate RAI",
+          "_go_back": "Torna alla pagina precedente"
+        }
+      },
+      "ev": {
+        "title": "Ricarica auto — 5/5",
+        "description": "Se non usi la ripartizione auto lasciala disattivata. Salva per applicare subito le modifiche e ricaricare soltanto questa integrazione.",
+        "data": {
           "ev_enabled": "Abilita ripartizione ricarica auto",
           "ev_grid": "Energia wallbox da rete del mese",
           "ev_pv": "Energia wallbox da fotovoltaico del mese",
-          "ev_include_fixed": "Attribuisci all’auto anche le quote fisse in proporzione"
+          "ev_include_fixed": "Attribuisci all’auto anche le quote fisse in proporzione",
+          "_go_back": "Torna alla pagina precedente"
         }
       }
     },

@@ -1,4 +1,3 @@
-
 name: Verifica
 
 on:
@@ -25,6 +24,24 @@ jobs:
           from pathlib import Path
           for path in Path('.').rglob('*.json'):
               json.loads(path.read_text(encoding='utf-8'))
+          PY
+      - name: Verifica registro delle modifiche
+        run: |
+          python - <<'PY'
+          import json
+          from pathlib import Path
+
+          manifest = json.loads(
+              Path(
+                  "custom_components/bolletta_luce_italia/manifest.json"
+              ).read_text(encoding="utf-8")
+          )
+          changelog = Path("CHANGELOG.md").read_text(encoding="utf-8")
+          version = manifest["version"]
+          if f"## [{version}]" not in changelog:
+              raise SystemExit(
+                  f"La versione {version} non è documentata in CHANGELOG.md"
+              )
           PY
 
   hassfest:

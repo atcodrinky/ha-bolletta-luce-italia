@@ -2,7 +2,7 @@
 
 Bolletta Luce Italia è un'integrazione personalizzata per Home Assistant che stima e archivia la bolletta elettrica italiana partendo dai consumi mensili F1, F2 e F3.
 
-La versione 0.2.0 introduce una configurazione guidata in cinque pagine ed è verificabile in parallelo ai sensori template esistenti.
+La configurazione guidata è suddivisa in cinque pagine e l'integrazione può essere verificata in parallelo ai sensori template esistenti.
 
 [![Apri nel Marketplace di Home Assistant](https://my.home-assistant.io/badges/marketplace_repository.svg)](https://my.home-assistant.io/redirect/marketplace_repository/?owner=atcodrinky&repository=ha-bolletta-luce-italia&category=integration)
 
@@ -17,7 +17,7 @@ La versione 0.2.0 introduce una configurazione guidata in cinque pagine ed è ve
 - accise, IVA e dieci rate configurabili del canone RAI;
 - stima totale, dettaglio delle singole voci e costo medio effettivo;
 - archivio mensile nello storage interno di Home Assistant;
-- inserimento manuale di consumi e totale delle bollette reali;
+- inserimento manuale e importazione multipla delle bollette reali, con consumi per fascia e dettaglio economico;
 - ripartizione opzionale della ricarica auto fra rete e fotovoltaico;
 - attribuzione opzionale e proporzionale delle quote fisse all'auto;
 - configurazione guidata in cinque pagine con contatore e ritorno al passaggio precedente;
@@ -106,6 +106,11 @@ Questo consente di inserire anche i consuntivi da gennaio a ottobre senza dipend
 
 Il servizio bolletta_luce_italia.archivia_mese salva manualmente la fotografia corrente del calcolo. Il passaggio a un nuovo mese archivia inoltre automaticamente l'ultima fotografia mantenuta in memoria.
 
+
+Per importare più mesi insieme è disponibile il servizio `bolletta_luce_italia.importa_storico`. Ogni voce richiede mese, consumi F1/F2/F3 e totale della bolletta senza RAI. Sono facoltativi periodo, RAI, bonus, totale da pagare, materia energia, trasporto, oneri, accise e IVA.
+
+L'importazione è idempotente: una voce già presente con lo stesso mese viene aggiornata e non duplicata. Per il confronto con la stima viene usato il totale della bolletta più il RAI, senza applicare bonus o crediti; il totale effettivamente pagato rimane disponibile separatamente.
+
 ## Opzioni e applicazione immediata
 
 Aprire l'integrazione e scegliere Configura. Il pulsante Salva applica i nuovi valori ricaricando soltanto Bolletta Luce Italia: non è necessario riavviare Home Assistant e non occorre eliminare o ricreare la configurazione.
@@ -114,7 +119,7 @@ Aprire l'integrazione e scegliere Configura. Il pulsante Salva applica i nuovi v
 
 - CdispD e componenti ARERA sono inseriti manualmente.
 - L'importazione automatica da fonti ufficiali ARERA sarà aggiunta dopo la validazione dei calcoli della prima versione.
-- L'archivio non importa automaticamente lo storico dei vecchi helper; i consuntivi reali possono però essere inseriti con il servizio dedicato.
+- L'archivio non importa automaticamente lo storico dei vecchi helper; le bollette reali possono essere importate con il servizio dedicato.
 - L'integrazione è progettata esclusivamente per forniture elettriche italiane domestiche.
 
 ## Versionamento

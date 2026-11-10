@@ -80,16 +80,47 @@ class BillCoordinator(DataUpdateCoordinator[dict[str, Any]]):
         self._active_snapshot = dict(result)
 
         invoice_month, invoice = self.archive.latest_invoice()
+        invoices = self.archive.data.get("invoices", {})
+        result["invoice_count"] = len(invoices)
+        result["invoice_archive"] = invoices
         result["latest_invoice_month"] = invoice_month
+        result["latest_invoice"] = invoice
         result["latest_real_energy"] = invoice.get("energy") if invoice else None
         result["latest_real_total"] = invoice.get("total") if invoice else None
-        archived = self.archive.data.get("months", {}).get(invoice_month, {}) if invoice_month else {}
+        result["latest_energy_bill_total"] = (
+            invoice.get("energy_bill_total") if invoice else None
+        )
+        result["latest_invoice_rai"] = invoice.get("rai") if invoice else None
+        result["latest_bonus"] = invoice.get("bonus") if invoice else None
+        result["latest_amount_due"] = invoice.get("amount_due") if invoice else None
+        archived = (
+            self.archive.data.get("months", {}).get(invoice_month, {})
+            if invoice_month
+            else {}
+        )
         estimate = archived.get("estimate")
-        result["deviation"] = round(invoice["total"] - estimate, 2) if invoice and estimate is not None else None
+        result["deviation"] = (
+            round(invoice["total"] - estimate, 2)
+            if invoice and estimate is not None
+            else None
+        )
         return result
 
-    async def async_record_invoice(self, month: str, energy: float, total: float) -> None:
-        await self.archive.async_record_invoice(month, energy, total)
+    async def async_record_invoice(
+        self,
+        month: str,
+        energy: float,
+        total: float,
+        **details: Any,
+    ) -> None:
+        await self.archive.async_record_invoice(month, energy, total, **details)
+        await self.async_request_refresh()
+
+    async def async_import_invoices(
+        self,
+        invoices: list[dict[str, Any]],
+    ) -> None:
+        await self.archive.async_import_invoices(invoices)
         await self.async_request_refresh()
 
     async def async_archive_current(self, month: str | None = None) -> None:

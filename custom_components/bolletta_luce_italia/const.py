@@ -69,4 +69,5 @@ DEFAULTS = {
 STORAGE_VERSION = 1
 STORAGE_KEY = DOMAIN + ".{entry_id}"
 SERVICE_RECORD_INVOICE = "registra_bolletta"
+SERVICE_IMPORT_HISTORY = "importa_storico"
 SERVICE_ARCHIVE_MONTH = "archivia_mese"

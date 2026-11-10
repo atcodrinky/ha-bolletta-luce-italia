@@ -32,6 +32,36 @@ registra_bolletta:
           unit_of_measurement: EUR
           mode: box
 
+
+importa_storico:
+  name: Importa storico bollette
+  description: Inserisce o aggiorna più bollette mensili complete senza creare duplicati.
+  fields:
+    entry_id:
+      name: Configurazione
+      description: Seleziona la configurazione di Bolletta Luce Italia.
+      required: true
+      selector:
+        config_entry:
+          integration: bolletta_luce_italia
+    invoices:
+      name: Bollette
+      description: Elenco YAML delle bollette da importare.
+      required: true
+      example:
+        - month: "2026-01"
+          period_start: "2026-01-01"
+          period_end: "2026-01-31"
+          energy_f1: 0
+          energy_f2: 0
+          energy_f3: 0
+          energy_bill_total: 0
+          rai: 0
+          bonus: 0
+          amount_due: 0
+      selector:
+        object:
+
 archivia_mese:
   name: Archivia mese
   description: Salva manualmente la fotografia corrente del calcolo mensile.

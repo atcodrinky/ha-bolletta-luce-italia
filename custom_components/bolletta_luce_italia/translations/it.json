@@ -155,6 +155,20 @@
     "archivia_mese": {
       "name": "Archivia mese",
       "description": "Salva la fotografia corrente del calcolo mensile."
+    },
+    "importa_storico": {
+      "name": "Importa storico bollette",
+      "description": "Inserisce o aggiorna più bollette mensili complete senza creare duplicati.",
+      "fields": {
+        "entry_id": {
+          "name": "Configurazione",
+          "description": "Configurazione di Bolletta Luce Italia da aggiornare."
+        },
+        "invoices": {
+          "name": "Bollette",
+          "description": "Elenco delle bollette mensili complete da importare."
+        }
+      }
     }
   }
 }

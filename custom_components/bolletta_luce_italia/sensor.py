@@ -49,9 +49,14 @@ SENSORS: tuple[BillSensorDescription, ...] = (
     BillSensorDescription(key="ev_grid_energy", name="Auto: energia da rete", **ENERGY),
     BillSensorDescription(key="ev_pv_energy", name="Auto: energia da fotovoltaico", **ENERGY),
     BillSensorDescription(key="ev_cost", name="Auto: quota bolletta", attribute_keys=("ev_share",), **MONEY),
-    BillSensorDescription(key="latest_real_energy", name="Ultima bolletta: consumi fatturati", attribute_keys=("latest_invoice_month",), **ENERGY),
-    BillSensorDescription(key="latest_real_total", name="Ultima bolletta: totale reale", attribute_keys=("latest_invoice_month",), **MONEY),
+    BillSensorDescription(key="latest_real_energy", name="Ultima bolletta: consumi fatturati", attribute_keys=("latest_invoice_month", "latest_invoice"), **ENERGY),
+    BillSensorDescription(key="latest_real_total", name="Ultima bolletta: totale confrontabile", attribute_keys=("latest_invoice_month", "latest_invoice"), **MONEY),
+    BillSensorDescription(key="latest_energy_bill_total", name="Ultima bolletta: totale energia senza RAI", **MONEY),
+    BillSensorDescription(key="latest_invoice_rai", name="Ultima bolletta: canone RAI", **MONEY),
+    BillSensorDescription(key="latest_bonus", name="Ultima bolletta: bonus e sconti", **MONEY),
+    BillSensorDescription(key="latest_amount_due", name="Ultima bolletta: totale da pagare", **MONEY),
     BillSensorDescription(key="deviation", name="Scostamento ultima bolletta", **MONEY),
+    BillSensorDescription(key="invoice_count", name="Bollette archiviate", attribute_keys=("invoice_archive",)),
 )
 
 

@@ -1,0 +1,10 @@
+{
+  "domain": "bolletta_luce_italia",
+  "name": "Bolletta Luce Italia",
+  "codeowners": ["@atcodrinky"],
+  "config_flow": true,
+  "documentation": "https://github.com/atcodrinky/ha-bolletta-luce-italia",
+  "iot_class": "local_polling",
+  "issue_tracker": "https://github.com/atcodrinky/ha-bolletta-luce-italia/issues",
+  "version": "0.1.0"
+}

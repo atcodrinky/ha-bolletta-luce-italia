@@ -1,0 +1,104 @@
+{
+  "title": "Bolletta Luce Italia",
+  "config": {
+    "step": {
+      "user": {
+        "title": "Configura Bolletta Luce Italia",
+        "description": "Seleziona le sorgenti e inserisci le condizioni del contratto. I valori possono essere modificati in seguito senza riavviare Home Assistant.",
+        "data": {
+          "name": "Nome configurazione",
+          "energy_f1": "Sensore energia F1",
+          "energy_f2": "Sensore energia F2",
+          "energy_f3": "Sensore energia F3",
+          "tariff_model": "Modello tariffario",
+          "pun_f1": "Sensore PUN F1",
+          "pun_f2": "Sensore PUN F2",
+          "pun_f3": "Sensore PUN F3",
+          "fixed_f1": "Prezzo fisso F1 (€/kWh)",
+          "fixed_f2": "Prezzo fisso F2 (€/kWh)",
+          "fixed_f3": "Prezzo fisso F3 (€/kWh)",
+          "loss_factor": "Fattore perdite di rete",
+          "spread_f1": "Spread F1 (€/kWh)",
+          "spread_f2": "Spread F2 (€/kWh)",
+          "spread_f3": "Spread F3 (€/kWh)",
+          "correction_factor": "Fattore di correzione consumi",
+          "sales_fixed_year": "Quota fissa vendita annua (€)",
+          "distribution_fixed_year": "Quota fissa distribuzione annua (€)",
+          "power_rate_year": "Quota potenza annua per kW (€)",
+          "committed_power": "Potenza impegnata (kW)",
+          "distribution_variable": "Distribuzione variabile (€/kWh)",
+          "system_charges": "Oneri di sistema (€/kWh)",
+          "cdispd": "CdispD (€/kWh)",
+          "excise": "Accisa (€/kWh)",
+          "vat": "IVA (%)",
+          "rai_year": "Canone RAI annuo (€)",
+          "rai_installments": "Numero rate RAI",
+          "ev_enabled": "Abilita ripartizione ricarica auto",
+          "ev_grid": "Energia wallbox da rete del mese",
+          "ev_pv": "Energia wallbox da fotovoltaico del mese",
+          "ev_include_fixed": "Attribuisci all’auto anche le quote fisse in proporzione"
+        }
+      }
+    },
+    "error": {
+      "pun_required": "Per una tariffa indicizzata devi indicare tutti e tre i sensori PUN.",
+      "ev_grid_required": "Per la ripartizione auto devi indicare il sensore dell’energia wallbox prelevata dalla rete."
+    },
+    "abort": {}
+  },
+  "options": {
+    "step": {
+      "init": {
+        "title": "Modifica Bolletta Luce Italia",
+        "description": "Salva per applicare subito le modifiche e ricaricare soltanto questa integrazione.",
+        "data": {
+          "name": "Nome configurazione",
+          "energy_f1": "Sensore energia F1",
+          "energy_f2": "Sensore energia F2",
+          "energy_f3": "Sensore energia F3",
+          "tariff_model": "Modello tariffario",
+          "pun_f1": "Sensore PUN F1",
+          "pun_f2": "Sensore PUN F2",
+          "pun_f3": "Sensore PUN F3",
+          "fixed_f1": "Prezzo fisso F1 (€/kWh)",
+          "fixed_f2": "Prezzo fisso F2 (€/kWh)",
+          "fixed_f3": "Prezzo fisso F3 (€/kWh)",
+          "loss_factor": "Fattore perdite di rete",
+          "spread_f1": "Spread F1 (€/kWh)",
+          "spread_f2": "Spread F2 (€/kWh)",
+          "spread_f3": "Spread F3 (€/kWh)",
+          "correction_factor": "Fattore di correzione consumi",
+          "sales_fixed_year": "Quota fissa vendita annua (€)",
+          "distribution_fixed_year": "Quota fissa distribuzione annua (€)",
+          "power_rate_year": "Quota potenza annua per kW (€)",
+          "committed_power": "Potenza impegnata (kW)",
+          "distribution_variable": "Distribuzione variabile (€/kWh)",
+          "system_charges": "Oneri di sistema (€/kWh)",
+          "cdispd": "CdispD (€/kWh)",
+          "excise": "Accisa (€/kWh)",
+          "vat": "IVA (%)",
+          "rai_year": "Canone RAI annuo (€)",
+          "rai_installments": "Numero rate RAI",
+          "ev_enabled": "Abilita ripartizione ricarica auto",
+          "ev_grid": "Energia wallbox da rete del mese",
+          "ev_pv": "Energia wallbox da fotovoltaico del mese",
+          "ev_include_fixed": "Attribuisci all’auto anche le quote fisse in proporzione"
+        }
+      }
+    },
+    "error": {
+      "pun_required": "Per una tariffa indicizzata devi indicare tutti e tre i sensori PUN.",
+      "ev_grid_required": "Per la ripartizione auto devi indicare il sensore dell’energia wallbox prelevata dalla rete."
+    }
+  },
+  "services": {
+    "registra_bolletta": {
+      "name": "Registra bolletta reale",
+      "description": "Inserisce i consumi fatturati e il totale reale di un mese."
+    },
+    "archivia_mese": {
+      "name": "Archivia mese",
+      "description": "Salva la fotografia corrente del calcolo mensile."
+    }
+  }
+}

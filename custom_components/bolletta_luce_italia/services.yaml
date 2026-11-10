@@ -1,0 +1,48 @@
+registra_bolletta:
+  name: Registra bolletta reale
+  description: Inserisce o sostituisce consumi fatturati e totale di un mese.
+  fields:
+    entry_id:
+      name: Identificativo configurazione
+      required: true
+      selector:
+        text:
+    month:
+      name: Mese
+      description: Formato AAAA-MM.
+      required: true
+      selector:
+        text:
+    energy:
+      name: Consumi fatturati
+      required: true
+      selector:
+        number:
+          min: 0
+          step: 0.001
+          unit_of_measurement: kWh
+          mode: box
+    total:
+      name: Totale bolletta
+      required: true
+      selector:
+        number:
+          min: 0
+          step: 0.01
+          unit_of_measurement: EUR
+          mode: box
+
+archivia_mese:
+  name: Archivia mese
+  description: Salva manualmente la fotografia corrente del calcolo mensile.
+  fields:
+    entry_id:
+      name: Identificativo configurazione
+      required: true
+      selector:
+        text:
+    month:
+      name: Mese
+      description: Facoltativo, formato AAAA-MM.
+      selector:
+        text:

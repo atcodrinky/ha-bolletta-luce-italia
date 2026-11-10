@@ -2,7 +2,7 @@
 
 from __future__ import annotations
 
-from typing import Any
+from typing import Any, Literal
 
 import voluptuous as vol
 
@@ -28,7 +28,7 @@ def _entity() -> selector.EntitySelector:
 def _number(
     minimum: float = 0,
     maximum: float = 10000,
-    step: float = 0.001,
+    step: float | Literal["any"] = 0.001,
 ) -> selector.NumberSelector:
     return selector.NumberSelector(
         selector.NumberSelectorConfig(
@@ -98,25 +98,25 @@ def _tariff_schema(values: dict[str, Any]) -> vol.Schema:
         _optional_entity(values, CONF_PUN_F3): _entity(),
         vol.Required(
             CONF_FIXED_F1, default=_value(values, CONF_FIXED_F1)
-        ): _number(0, 5, 0.000001),
+        ): _number(0, 5, "any"),
         vol.Required(
             CONF_FIXED_F2, default=_value(values, CONF_FIXED_F2)
-        ): _number(0, 5, 0.000001),
+        ): _number(0, 5, "any"),
         vol.Required(
             CONF_FIXED_F3, default=_value(values, CONF_FIXED_F3)
-        ): _number(0, 5, 0.000001),
+        ): _number(0, 5, "any"),
         vol.Required(
             CONF_LOSS_FACTOR, default=_value(values, CONF_LOSS_FACTOR)
         ): _number(0.5, 2),
         vol.Required(
             CONF_SPREAD_F1, default=_value(values, CONF_SPREAD_F1)
-        ): _number(0, 5, 0.000001),
+        ): _number(0, 5, "any"),
         vol.Required(
             CONF_SPREAD_F2, default=_value(values, CONF_SPREAD_F2)
-        ): _number(0, 5, 0.000001),
+        ): _number(0, 5, "any"),
         vol.Required(
             CONF_SPREAD_F3, default=_value(values, CONF_SPREAD_F3)
-        ): _number(0, 5, 0.000001),
+        ): _number(0, 5, "any"),
     }
     fields.update(_back_field())
     return vol.Schema(fields)
@@ -143,14 +143,14 @@ def _network_schema(values: dict[str, Any]) -> vol.Schema:
         vol.Required(
             CONF_DISTRIBUTION_VARIABLE,
             default=_value(values, CONF_DISTRIBUTION_VARIABLE),
-        ): _number(0, 5, 0.000001),
+        ): _number(0, 5, "any"),
         vol.Required(
             CONF_SYSTEM_CHARGES,
             default=_value(values, CONF_SYSTEM_CHARGES),
-        ): _number(0, 5, 0.000001),
+        ): _number(0, 5, "any"),
         vol.Required(
             CONF_CDISPD, default=_value(values, CONF_CDISPD)
-        ): _number(0, 5, 0.000001),
+        ): _number(0, 5, "any"),
     }
     fields.update(_back_field())
     return vol.Schema(fields)
@@ -164,7 +164,7 @@ def _taxes_schema(values: dict[str, Any]) -> vol.Schema:
         ): _number(0.1, 10),
         vol.Required(
             CONF_EXCISE, default=_value(values, CONF_EXCISE)
-        ): _number(0, 5, 0.000001),
+        ): _number(0, 5, "any"),
         vol.Required(
             CONF_VAT, default=_value(values, CONF_VAT)
         ): _number(0, 100, 0.1),

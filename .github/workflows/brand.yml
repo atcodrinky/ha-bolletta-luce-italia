@@ -19,6 +19,12 @@ jobs:
       - name: Scarica il repository
         uses: actions/checkout@v4
 
+      - name: Installa il generatore di immagini
+        shell: bash
+        run: |
+          sudo apt-get update
+          sudo apt-get install --yes imagemagick
+
       - name: Genera le icone
         shell: bash
         run: |

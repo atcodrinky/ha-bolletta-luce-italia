@@ -36,7 +36,7 @@ Questi sensori, il relativo misuratore di utilità e lo storico della Dashboard 
 3. Aprire Impostazioni, Dispositivi e servizi, Aggiungi integrazione.
 4. Cercare Bolletta Luce Italia.
 
-È possibile aggiungere questo repository anche come repository personalizzato di tipo Integrazione in HACS.
+È possibile aggiungere questo repository anche come repository personalizzato di tipo Integrazione nel Marketplace di Home Assistant.
 
 ## Configurazione consigliata per Octopus
 

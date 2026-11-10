@@ -4,6 +4,13 @@ Tutte le modifiche rilevanti di Bolletta Luce Italia sono documentate in questo 
 
 Il progetto usa il versionamento semantico e i tag nel formato `vMAJOR.MINOR.PATCH`.
 
+## [0.2.3] - 2026-11-10
+
+### Corretto
+
+- Estesa la precisione libera a tutti i campi numerici decimali del config flow e delle opzioni, comprese quote annue, coefficienti, potenza impegnata, IVA e canone RAI.
+- Conservato il passo intero esclusivamente per il numero delle rate RAI.
+
 ## [0.2.2] - 2026-11-10
 
 ### Corretto
